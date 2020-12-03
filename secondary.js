@@ -3,8 +3,13 @@ const { BrowserWindow, dialog } = require('electron').remote;
 const button = document.getElementById('verificar')
 const automata = {
     estadoInicial: 1,
-    estadoFinal: 3,
+    estadoFinal: [1, 3],
     transiciones: [{
+            estado: 1,
+            simbolo: '',
+            al_estado: 1
+        },
+        {
             estado: 1,
             simbolo: 'a',
             al_estado: 1
@@ -36,6 +41,7 @@ button.addEventListener('click', (event) => {
     let cadena = document.getElementById('txtCadena').value;
     let estadoActual = automata.estadoInicial;
     let error = false;
+    debugger;
 
     cadena.split('').every(simbolo => {
         let encuentraTransicion = false;
@@ -56,19 +62,22 @@ button.addEventListener('click', (event) => {
         return true;
     });
 
-    if (!error && automata.estadoFinal == estadoActual) {
-        let options = {
-            buttons: ['Aceptar'],
-            message: 'Cadena correcta'
+    let esfinal = false;
+
+    automata.estadoFinal.every(final => {
+        if (!error && estadoActual == final) {
+            let options = {
+                buttons: ['Aceptar'],
+                message: 'Cadena correcta'
+            }
+            dialog.showMessageBox(options);
+            esfinal = true;
+            return false;
         }
-        dialog.showMessageBox(options);
-    } else if (cadena.length === 0) {
-        let options = {
-            buttons: ['Aceptar'],
-            message: 'Cadena valida. La cadena puede estar correcta si esta vacia'
-        }
-        dialog.showMessageBox(options);
-    } else {
+        return true;
+    });
+
+    if (!esfinal) {
         dialog.showErrorBox('Error', 'La cadena no es valida.');
     }
 });
