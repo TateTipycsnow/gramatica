@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+    <title>Gramatica</title>
+</head>
+
+<body>
+    <div>
+        <h4>Gramatica:</h4>
+        <label>G = ({a,b,c}, {S,A,B}, S, P),</label><br>
+        <label>P = {</label><br>
+        <label>S -> λ</label><br>
+        <label>S -> aAc</label><br>
+        <label>A -> aA</label><br>
+        <label>A -> Ac</label><br>
+        <label>A -> B</label><br>
+        <label>B -> b</label><br>
+        <label>B -> Bb</label><br>
+        <label>}</label><br>
+    </div>
+    <div>
+        <label>Ingresa la cadena para validar:</label>
+        <input type="text" id="txtCadena">
+    </div>
+
+    <button id="verificar">Verificar cadena</button>
+    <script src="secondary.js"></script>
+</body>
+
+</html>

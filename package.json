@@ -1,0 +1,25 @@
+{
+    "name": "gramatica",
+    "version": "1.0.0",
+    "description": "Programa de verificacion de gramatica",
+    "main": "main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "electron .",
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder"
+    },
+    "author": "Jared",
+    "license": "ISC",
+    "devDependencies": {
+        "electron": "^10.1.2",
+        "electron-builder": "^22.9.1"
+    },
+    "build": {
+        "appId": "com.jared.gramatica",
+        "win": {
+            "target": "nsis",
+            "icon": "build/chart.ico"
+        }
+    }
+}
