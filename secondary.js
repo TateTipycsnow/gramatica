@@ -3,36 +3,41 @@ const { BrowserWindow, dialog } = require('electron').remote;
 const button = document.getElementById('verificar')
 const automata = {
     estadoInicial: 1,
-    estadoFinal: [1, 3],
+    estadoFinal: [1, 4],
     transiciones: [{
             estado: 1,
-            simbolo: '',
-            al_estado: 1
-        },
-        {
-            estado: 1,
             simbolo: 'a',
-            al_estado: 1
+            al_estado: 2
         },
         {
-            estado: 1,
-            simbolo: 'b',
+            estado: 2,
+            simbolo: 'a',
             al_estado: 2
         },
         {
             estado: 2,
             simbolo: 'b',
-            al_estado: 2
+            al_estado: 3
         },
         {
             estado: 2,
             simbolo: 'c',
+            al_estado: 4
+        },
+        {
+            estado: 3,
+            simbolo: 'b',
             al_estado: 3
         },
         {
             estado: 3,
             simbolo: 'c',
-            al_estado: 3
+            al_estado: 4
+        },
+        {
+            estado: 4,
+            simbolo: 'c',
+            al_estado: 4
         }
     ]
 }
